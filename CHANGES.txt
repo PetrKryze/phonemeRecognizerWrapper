@@ -1,0 +1,7 @@
+Version 0.1.2
+2022-09-08
+- Fixed packaging modules, updated README and comment to reflect the new setup.
+
+Version 0.1.1
+2022-09-08
+- Initial upload.

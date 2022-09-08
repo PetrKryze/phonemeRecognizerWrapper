@@ -1,12 +1,11 @@
 # ----------------------------------------------------------------------------------------------------------------------
-# phonemeRecognizer.py
+# recognize.py
 # This script uses the Allosaurus phoneme recognition package to extract phonemic content from audio files of human
-# speech. This script acts as a wrapper over the allosaurus package for improved formatting and piping of data to
-# MATLAB script <getPhonemesAllosaurus.m>, which consequently parses the data into MATLAB friendly formant and passes
-# it to other scripts for analysis (specifically, vowel formant extraction).
+# speech. This script acts as a wrapper over the Allosaurus package for improved formatting and piping of data to
+# MATLAB scripts for analysis (e.g. vowel formant extraction).
 # ----------------------------------------------------------------------------------------------------------------------
 # Command structure:
-# <py phonemeRecognizer.py LANGUAGE_CODE FILES EMIT_PROB>
+# <py -m phonemeRecognizerWrapper.recognize LANGUAGE_CODE FILES EMIT_PROB>
 # ----------------------------------------------------------------------------------------------------------------------
 # Required Arguments:
 # 1) LANGUAGE_CODE: Three characters long language code supported by the Allosaurus library. For the list of available
@@ -30,10 +29,10 @@
 #               that produces comprehensive outputs is 0.8 - 1.5. If omitted, default value of 1.5 is used.
 # ----------------------------------------------------------------------------------------------------------------------
 # Example usage from command line:
-# <py phonemeRecognizer.py eng "C:\sound.wav" 1.0>
+# <py -m phonemeRecognizerWrapper.recognize eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0>
 
 # Example usage from MATLAB via the <[status, result] = system(command)> function:
-# <command = 'py "C:\...\phonemeRecognizer.py" eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0';>
+# <command = 'py -m phonemeRecognizerWrapper.recognize" eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0';>
 # It is also recommended to use <set PYTHONIOENCODING=utf8> before the python command to ensure proper text formantting
 # via the standard output pipe.
 # ----------------------------------------------------------------------------------------------------------------------

@@ -2,10 +2,10 @@
 Package containing one wrapper script over the Allosaurus phoneme recognition library, designed for passing the Allosaurus output data to MATLAB scripts for further analysis.
 
 ## Usage: phonemeRecognizer.py
-This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme recognition package to extract phonemic content from audio files of human speech. This script acts as a wrapper over the allosaurus package for improved formatting and piping of data to MATLAB script `getPhonemesAllosaurus.m`, which consequently parses the data into MATLAB friendly formant and passes it to other scripts for analysis (specifically, vowel formant extraction).
+This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme recognition package to extract phonemic content from audio files of human speech. This script acts as a wrapper over the allosaurus package for improved formatting and piping of data to MATLAB scripts for analysis (e.g. vowel formant extraction).
 
 ### Command structure
-`py phonemeRecognizer.py LANGUAGE_CODE FILES EMIT_PROB`
+`py -m phonemeRecognizerWrapper.recognize LANGUAGE_CODE FILES EMIT_PROB`
 
 ### Required Arguments:
 1. `LANGUAGE_CODE`
@@ -32,8 +32,8 @@ This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme 
 
 ### Examples
 - Example usage from command line:
-  `py phonemeRecognizer.py eng "C:\sound.wav" 1.0`
+  `py -m phonemeRecognizerWrapper.recognize eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0`
 
 - Example usage from MATLAB via the `[status, result] = system(command)` function:  
-  `command = 'py "C:\...\phonemeRecognizer.py" eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0';`
+  `command = 'py -m phonemeRecognizerWrapper.recognize eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0';`
   - It is also recommended to use `set PYTHONIOENCODING=utf8` before the python command to ensure proper text formantting via the standard output pipe.
