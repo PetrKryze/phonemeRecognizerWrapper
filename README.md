@@ -10,7 +10,7 @@ Package containing one wrapper script over the Allosaurus phoneme recognition li
      `pip install phonemeRecognizerWrapper`
      - This should also automatically install all dependent packages. 
 
-## Usage: phonemeRecognizer.py
+## Usage
 This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme recognition package to extract phonemic content from audio files of human speech. This script acts as a wrapper over the allosaurus package for improved formatting and piping of data to MATLAB scripts for analysis (e.g. vowel formant extraction).
 
 ### Command structure
