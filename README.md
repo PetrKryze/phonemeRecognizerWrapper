@@ -1,6 +1,15 @@
 # phonemeRecognizerWrapper
 Package containing one wrapper script over the Allosaurus phoneme recognition library, designed for passing the Allosaurus output data to MATLAB scripts for further analysis.
 
+## Installation
+1. [Install Python 3](https://www.python.org/downloads/)
+   - To see if Python is installed, use `py --version` in command line
+   - `pip` is automatically included in the Python installation, but to check or update the pip version use: `py -m ensurepip --upgrade`
+2. [Install this package](https://pypi.org/project/phonemeRecognizerWrapper)
+   - From command line (assuming user has already installed python and pip):  
+     `pip install phonemeRecognizerWrapper`
+     - This should also automatically install all dependent packages. 
+
 ## Usage: phonemeRecognizer.py
 This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme recognition package to extract phonemic content from audio files of human speech. This script acts as a wrapper over the allosaurus package for improved formatting and piping of data to MATLAB scripts for analysis (e.g. vowel formant extraction).
 
@@ -37,3 +46,8 @@ This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme 
 - Example usage from MATLAB via the `[status, result] = system(command)` function:  
   `command = 'py -m phonemeRecognizerWrapper.recognize eng "C:\sounds\sound.wav;C:\sounds\sound2.wav" 1.0';`
   - It is also recommended to use `set PYTHONIOENCODING=utf8` before the python command to ensure proper text formantting via the standard output pipe.
+
+## Contacts
+> For any questions, please email: *petr.kryze@gmail.com*  
+> Authors: Petr Krýže @PetrKryze based on code from Vojtěch Illner  
+> CTU Prague, FEE 2022
