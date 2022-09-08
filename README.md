@@ -1,4 +1,4 @@
-# GetVowelFormants
+# phonemeRecognizerWrapper
 Package containing one wrapper script over the Allosaurus phoneme recognition library, designed for passing the Allosaurus output data to MATLAB scripts for further analysis.
 
 ## Usage: phonemeRecognizer.py
