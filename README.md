@@ -30,8 +30,8 @@ This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme 
      - `"fra"` - french
      - `"eng"` - english
 2. `FILES`
-   - Semicolon delimited text string containing absolute paths to all files meant for recognition. Surround the string with apostrophes ("") if any of the paths contains spaces.
-   - Example:  
+   - Absolute path to a temp .txt file containing semicolon delimited text string of absolute paths to all files meant for recognition. Surround the string with apostrophes ("") if any of the paths contains spaces.
+   - Temp file contents example:  
      `"C:\sounds\sound1.wav;C:\sounds\sound2.wav"`
 
 ### Optional Arguments:
@@ -50,4 +50,4 @@ This script uses the [Allosaurus](https://github.com/xinjli/allosaurus) phoneme 
 ## Contacts
 > For any questions, please email: *petr.kryze@gmail.com*  
 > Authors: Petr Krýže @PetrKryze based on code from Vojtěch Illner  
-> CTU Prague, FEE 2022
+> CTU Prague, FEE 2023

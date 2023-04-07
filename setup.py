@@ -5,7 +5,7 @@ setup(
     name='phonemeRecognizerWrapper',
 
     # Version number (initial):
-    version='0.1.2',
+    version='0.1.3',
 
     # Application author details:
     author='Petr Krýže',
