@@ -18,9 +18,9 @@
 #                   "gsw" - swiss german
 #                   "fra" - french
 #                   "eng" - english
-# 2) FILES: Semicolon delimited text string containing absolute paths to all files meant for recognition. Surround the
-#           string with apostrophes ("") if any of the paths contains spaces.
-#           * Example:
+# 2) FILES: Absolute path to a temp .txt file containing a semicolon delimited string of absolute paths to all files
+#           meant for recognition. Surround the string with apostrophes ("") if any of the paths contains spaces.
+#           * Temp file contents example:
 #           "C:\sounds\sound1.wav;C:\sounds\sound2.wav"
 
 # Optional Arguments:
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     try:
         # Required arguments
         input_lang = sys.argv[1]
-        input_files = sys.argv[2]
+        input_files_file_path = sys.argv[2]
         # Optional argument
         if len(sys.argv) <= 3:
             input_emit = DEFAULT_EMIT_PROBABILITY  # Get default emit probability
@@ -102,9 +102,24 @@ if __name__ == '__main__':
     except IndexError:
         print('Invalid input arguments\n' +
               '1 - language code\n' +
-              '2 - string with semicolon delimited input sound files for analysis\n' +
+              '2 - path to a temp text file containing a string with semicolon delimited input sound files for '
+              'analysis\n' +
               '3 - float number indicating probability of emitting phonemes\n')
         sys.exit(-1)
+
+    # Input files' paths are stored in a temp text file on the provided path (input_files_file_path), we need to
+    # retrieve that file and get its content (just one long line)
+    temp_file_path = Path(input_files_file_path)
+    if not Path.is_file(temp_file_path):  # Check for file existence
+        sys.stderr.write("Temp input file %s does not exist or is not a file!" % temp_file_path)
+        sys.exit(-1)
+
+    ext = temp_file_path.suffix.lower()
+    if ext != ".txt":
+        sys.stderr.write("Temp input file %s is not a TXT text file!" % temp_file_path)
+        sys.exit(-1)
+
+    input_files = Path.read_text(temp_file_path)
 
     # Input conditioning - parse input and check file existence
     processed_files = []
@@ -118,7 +133,7 @@ if __name__ == '__main__':
 
             ext = filepath.suffix.lower()
             if ext != ".wav":  # Check if the file is a WAV
-                sys.stderr.write("File %s is not a WAV audio file." % f)
+                sys.stderr.write("File %s is not a WAV audio file!" % f)
                 sys.exit(-1)
 
             fol_path = filepath.parent  # Folder where the file is located
